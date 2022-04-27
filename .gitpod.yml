@@ -6,7 +6,8 @@ tasks:
   - init: |
       ddev start -y
       ddev composer install
-      php ./core/scripts/drupal install standard
+      ddev drush si -y --account-pass=admin --site-name='ddev_gitpod' demo_umami
+      ddev composer remove drush/drush -W
     command: |
       ddev start -y
       gp await-port 8080 && gp preview $(gp url 8080)
