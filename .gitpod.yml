@@ -5,9 +5,12 @@ image: drupalpod/drupalpod-gitpod-base:20220322
 tasks:
   - init: |
       ddev start -y
+      ddev composer require drupal/automatic_updates
+      ddev composer require drupal/project_browser
+      ddev composer require drupal/core-vendor-hardening
       ddev composer install
       ddev drush si -y --account-pass=admin --site-name='ddev_gitpod' demo_umami
-      ddev composer remove drush/drush -W
+      ddev drush en automatic_updates project_browser --yes
     command: |
       ddev start -y
       gp await-port 8080 && gp preview $(gp url 8080)

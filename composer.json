@@ -35,6 +35,10 @@
         }
     },
     "extra": {
+        "drupal-core-vendor-hardening": {
+            "drush/drush": ["docs"],
+            "grasmash/yaml-expander": ["scenarios"]
+        },
         "drupal-scaffold": {
             "locations": {
                 "web-root": "web/"
