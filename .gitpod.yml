@@ -9,7 +9,7 @@ tasks:
       ddev composer install --no-interaction
       ddev composer require drupal/core-vendor-hardening
       ddev drush si -y --account-pass=admin --site-name='Automatic Updates Testing' standard
-      ddev drush en automatic_updates
+      ddev drush en automatic_updates --y
     command: |
       ddev start -y
       gp await-port 8080 && gp preview $(gp url 8080)
