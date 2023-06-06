@@ -8,10 +8,10 @@ tasks:
       ddev start -y
       ddev composer install --no-interaction
       ddev composer require drupal/core-vendor-hardening
-      ddev drush si -y --account-pass=admin --site-name='ddev_gitpod' standard
-      ddev composer remove drush/drush -W
-      ddev composer require drupal/automatic_updates
-      ddev composer require drupal/project_browser
+      ddev drush si -y --account-pass=admin --site-name='Automatic Updates Testing' standard
+      ddev composer remove drush/drush^11 -W
+      ddev composer require drupal/automatic_updates^3
+      ddev composer require drupal/project_browser:1.0.x-dev
     command: |
       ddev start -y
       gp await-port 8080 && gp preview $(gp url 8080)
